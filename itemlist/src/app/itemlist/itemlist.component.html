@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="continer">
+    <div class="row justify-content-md-center">
+      <div id="item-list-main" class="col col-md-6">
+        <h1>{{title}}</h1>
+        <form>
+          <div class="form-row align-items-center">
+            <div class="col col-sm-10">
+              <label class="sr-only">Item Name</label>
+              <input type="text" class="form-control" name="item-name" [(ngModel)]="newItem" id="newitem" placeholder="Enter Item Name"   />
+            </div>
+            <div class="col col-sm-2">
+              <button type="button" class="btn btn-primary btn-block" (click)="injectItem()"><i class="fa fa-plus"></i></button>
+            </div>
+          </div>
+        </form>
+        <div class="item-list">
+            <div class="list">       
+              <div class="row" *ngFor="let item of items; index as i">
+                <div class="col-auto">{{i+1}}</div> 
+                <div class="col ">{{item | uppercase}}</div>
+                <div class="col"><span class="time">{{itemTimes[i] | date: 'mediumTime'}}</span></div>  
+                <div class="col-auto pull-right"><span (click)="removeItem(i)"><i class="fa fa-close"></i></span></div>
+              </div>
+            </div>  
+            <div class="row">
+              <div class="col-auto" id="add-new-item">{{newItem}}</div>              
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
